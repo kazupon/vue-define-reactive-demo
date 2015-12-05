@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>define reactive scope demo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script src="./node_modules/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h1>$data スコープ</h1>
+      <p>$data の値</p>
+      <pre>{{ $data | json }}</pre>
+      <h1>$my 独自スコープ</h1>
+      <h2>追加</h2>
+      key: <input type="text" v-model="key"></br>
+      value: <input type="text" v-model="value"></br>
+      <button type="button" @click="onClickAdd">プロパティを追加</button>
+      <h2>削除</h2>
+      key: <input type="text" v-model="target"></br>
+      <button type="button" @click="onClickDel">プロパティを削除</button>
+      <p>$my の値</p>
+      <pre>{{ $my | json }}</pre>
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>
