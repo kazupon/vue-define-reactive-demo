@@ -17,7 +17,10 @@ function plugin (Vue) {
    * 独自スコープに kye と value でプロパティを追加
    */
   Vue.prototype.$addProp = function (key, value) {
-    Vue.set(this._my, key, value)
+    var res = Vue.parsers.expression.parseExpression(key, true)
+    if (res && res.set) {
+      res.set.call(this, this._my, value)
+    }
   }
 
   /**
